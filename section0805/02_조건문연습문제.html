@@ -1,0 +1,101 @@
+<!DOCTYPE html>  
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>02_조건문연습문제.html</title>
+    </head>
+    <body>        
+
+        <h3>조건문 연습문제</h3>
+
+        <script>
+
+            // 문1) 평균 점수에 따라서 A, B, C, D, F학점을 출력하시오
+            let kor=100, eng=95, mat=90;
+            let aver=parseInt((kor+eng+mat)/3);
+            switch (parseInt(aver/10)) {
+                case 10 :
+                case 9 : document.write("A학점<hr>"); break;
+                case 8 : document.write("B학점<hr>"); break;
+                case 7 : document.write("C학점<hr>"); break;
+                case 6 : document.write("D학점<hr>"); break;
+                default : document.write("F학점<hr>"); break;
+            }
+
+
+            // 문2) 연산 기호(op)에 따라 결과값을 출력하시오
+            let i=3, j=5;
+            let op = "+"; // + - * /
+            /* switch (op) {
+                case "+" : document.write(i + op + j + "=" + (i + j) + "<hr>"); break;
+                case "-" : document.write(i + op + j + "=" + (i - j) + "<hr>"); break;
+                case "*" : document.write(i + op + j + "=" + (i * j) + "<hr>"); break;
+                case "/" : document.write(i + op + j + "=" + (i / j) + "<hr>"); break;
+            } */
+
+            let result = 0;
+            switch (op) {
+                case "+" : result=i+j; break;
+                case "-" : result=i-j; break;
+                case "*" : result=i*j; break;
+                case "/" : result=i/j; break;
+            }
+            document.write(i + op + j + "=" + result);
+            document.write("<hr>");
+
+
+            // 문3) 주민번호를 이용해서 나이와 성별을 출력하시오
+            /* let idnum = 9211113111111;
+            let id_age = parseInt(idnum/100000000000);
+            let id_gender = parseInt((idnum%10000000)/1000000);
+            
+            let age = 0;
+            let gender;
+            switch (id_gender) {
+                case 1 : gender="남자", age=122-id_age+1; break;
+                case 2 : gender="여자", age=122-id_age+1; break;
+                case 3 : gender="남자", age=22-id_age+1; break;
+                case 4 : gender="여자", age=22-id_age+1; break;
+            }
+            document.write("당신의 성별은 " + gender + "이고 당신의 나이는 " + age + "입니다.")
+            // 출생년도가 0으로 시작되면 오류가 나버려.. */
+            
+            // 예 ) 주민번호
+            // 나이 : 올해년도 - 태어난 년도
+            // 성별 : 1 또는 3 남자, 2 또는 4 여자
+
+            let myYear=parseInt("08");
+            let myCode=parseInt("4");
+
+            let birthYear;
+            // 태어난 년도 완성하기
+            switch (myCode) {
+                case 1 :
+                case 2 : birthYear = 1900 + myYear; break;
+                case 3 :
+                case 4 : birthYear = 2000 + myYear; break;
+                default : birthYear = "주민번호 뒷자리의 맨 앞 숫자를 잘못 입력하셨습니다."; break;
+            }
+
+            // 나이 구하기
+            myAge=2022-birthYear+1
+            document.write("나이 : " + myAge + "<hr>");
+
+            // 성별 구하기 (switch문)
+            switch (myCode%2) {
+                case 0 : document.write("성별 : 여자<hr>"); break;
+                case 1 : document.write("성별 : 남자<hr>"); break;
+            }
+
+            // 성별 구하기 (if문)
+            if (myCode%2==0) {
+                document.write("성별 : 여자<hr>")
+            } else {
+                document.write("성별 : 여자<hr>")
+            }
+
+
+        </script>
+
+    </body>
+</html>

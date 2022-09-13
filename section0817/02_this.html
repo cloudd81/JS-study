@@ -1,0 +1,69 @@
+<!DOCTYPE html>  
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>02_this.html</title>
+    </head>
+    <body>        
+
+        <h3>this</h3>
+
+        <form id="myform" name="myform" onsubmit="return test5(this)">
+
+        <!-- <form id="myform" name="myform" onsubmit="return test5(this.form)">은 undefined가 출력된다 -->
+            <input type="button" name="btn1" id="btn1" value="버튼1" onclick="test1()">
+            <!-- this 자신의 요소 -->
+            <input type="button" name="btn2" id="btn2" value="버튼2" onclick="test2(this)">
+            <!-- this.value 자신의 요소가 가지고 있는 실제 값 -->
+            <input type="button" name="btn3" id="btn3" value="버튼3" onclick="test3(this.value)">
+            <!-- this.form 자신의 요소가 속해있는 봄. 여기서는 <form name=myform>을 가리킨다 -->
+            <input type="button" name="btn4" id="btn4" value="버튼4" onclick="test4(this.form)">
+            
+            <!-- onsubmit 이벤트는 return값이 true이면 전송된다 -->
+            <hr>
+            <input type="submit" name="btn5" id="btn5" value="전송">
+
+        </form>
+
+        <script>
+            // 참조 https://www.w3schools.com/js/js_this.asp
+            /* 
+                ● [this]
+                 - 자기 자신의 요소를 가리킴
+                 - 폼 컨트롤 요소에서만 사용이 가능하다
+                   예) <a href="" onclick="test(this)">
+                     여기에서 this는 쓰레기값이므로 주의해야한다.
+            */
+
+            function test1() {
+                // 1) name에 접근
+                let f=document.myform;
+                alert(f); // [object HTMLFormElement]
+                alert(f.btn1); // [object HTMLInputElement]
+                alert(f.btn1.value); // 버튼1
+
+                // 2) id로 접근하기(추천)
+                alert(document.getElementById("btn1").value); // 버튼1
+            } // test1() end
+
+            function test2(obj) {
+                alert(obj); // [object HTMLInputElement]
+                alert(obj.value); // 버튼2
+            } // test2() end
+
+            function test3(val) {
+                alert(val); // 버튼3
+            } // test3() end
+
+            function test4(frm) {
+                alert(frm); // [object HTMLFormElement]
+            } // test4() end
+
+            function test5(r) {
+                alert(r); // [object HTMLFormElement]
+            } // test5() end
+            
+        </script>
+
+    </body>
+</html>

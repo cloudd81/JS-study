@@ -1,0 +1,36 @@
+<!DOCTYPE html>  
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>03_삼항연산자.html</title>
+    </head>
+    <body>        
+
+        <h3>삼항연산자</h3>
+
+        <script>
+            let a=3;
+            document.write(a*-1);
+            document.write(-a);
+            document.write("<hr>");
+
+            // 삼항연산자
+            // 형식)        (조건) ? 참 : 거짓
+
+            // 문1) 절대값을 구하시오 : 양수값을 구하라
+            let num=-5;
+            let result = (num<0) ? num*-1 : num
+            document.write(num + "의 절대값은 " + result);
+            document.write("<hr>");
+
+            // 문2) 세 개의 수 중에서 가장 큰 값을 구하라(최대값)
+            let x=-49, y=-205, z=-89;
+            let comp = (x>y) ? x : y;
+            let max = (z>comp) ? z : comp;
+            document.write(x + ", " + y + ", " + z + " 중에 가장 큰 수는 " + max);
+            document.write("<hr>");
+            
+        </script>
+
+    </body>
+</html>

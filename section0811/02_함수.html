@@ -1,0 +1,127 @@
+<!DOCTYPE html>  
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>02_함수.html</title>
+    </head>
+    <body>        
+
+        <script>
+            // 3) 리턴값이 있는 경우
+            //   - 함수는 호출한 시점으로 되돌아온다(return).
+            //   - 리턴값 : 값을 가지고 호출한 시점으로 되돌아온다.
+            //   - 리턴값 : 1개만 가능하다.
+            //   - 형식 : return 값
+
+            function test1() {
+                document.write("SEOUL");
+                return; // 호출 시점으로 되돌아간다.
+                        // 맨 마지막 return은 생략 가능하다.
+            } // test1() end
+
+            function test2(a) {
+                if (a<0) {
+                    return;
+                }
+                document.write(a);
+            } // test2() end
+
+            function test3(a, b) {
+                let c=a+b;
+                return c;
+            }
+
+            function fact(num) {
+                let f=1;
+                for(i=1; i<=num; i++){
+                    f*=i;                          
+                }
+                return f;                                                 
+            }
+
+            /* 팩토리얼 거꾸로 계산하기
+                let f=1;
+                for(i=num; i>=1; i--){
+                    f*=i;                          
+                }
+                return f;                                                 
+            } 
+            */
+
+            function leap(nYear) {
+                if(nYear%4==0 && nYear%100!=0 || nYear%400==0){
+                    return "윤년";
+                } else {
+                    return "평년";
+                }
+            }        
+
+            /////////////////////////////////////////////////////
+            test1(); // 함수호출
+            test2(3);
+            test2(-5);
+            document.write("<hr>");
+
+            let result=test3(6, 7);
+            document.write(result);         // 변수값
+            document.write(13);             // 상수값
+            document.write(test3(8, 9));    // 함수의 리턴값
+            document.write("<hr>");
+
+            // 문1) 팩토리얼값을 구하시오
+            let gop = fact(4);
+            document.write(gop);
+            document.write("<hr>");
+
+            // 문2) 윤년, 평년을 구하시오
+            let year = leap(2022);
+            document.write(year);
+            document.write("<hr>");
+
+            ///////////////////////////////////////
+            /*
+            function leap(Year) {
+                if(nYear%4==0 && nYear%100!=0 || nYear%400==0){
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+
+            if(leap(2022)) {
+                document.write("윤년")
+            } else {
+                document.write("평년")
+            }
+            */
+            ////////////////////////////////////////
+
+            // 4) 재귀적 함수 호출 (자신이 자신을 부른다)
+            document.write(test(5)); // 3팩토리얼 값 구하기
+
+            function test(f) {
+                if(f==0){
+                    return 1;
+                } else {
+                    return f*test(f-1); // test(); 자신의 함수를 호출할 수 있다.
+                }
+            } //test() end
+
+            /* 
+                if(3==0)
+                else
+                    3 * test(3-1)
+                         if(2==0)
+                         else
+                             2 * test(2-1)
+                                 if(1==0)
+                                 else
+                                     1 * test(1-1)
+                                         if(0==0) 1
+            */
+            document.write("<hr>");
+
+        </script>
+
+    </body>
+</html>

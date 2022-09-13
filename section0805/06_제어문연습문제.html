@@ -1,0 +1,144 @@
+<!DOCTYPE html>  
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>06_제어문연습문제.html</title>
+    </head>
+    <body>        
+
+        <h3>제어문 연습문제</h3>
+
+        <script>
+            //문1) 운행거리에 따라 택시 요금을 계산하는 프로그램
+            //    2000m까지는 기본요금 900원이고
+            //    2000m초과 운행시 200m단위마다 기본요금에 100원씩 가산하여 요금을 계산한다
+
+            let distance = 2900;
+            let price = 0;
+
+            if (distance<=2000) {              
+                price = 900;
+            } else if (distance>2000) {
+                price = 900 + Math.ceil((distance-2000)/200)*100;
+            }
+            document.write("택시 요금은 " + price + "원 입니다.");
+            document.write("<hr>");
+
+            // 강사님의 풀이
+            let total = 0;
+            let overfee = 0;
+
+            if (distance<=2000) {
+                total = 900;
+            } else{
+                let exceed = distance - 2000;
+                // document.write("초과거리 : " + exceed + "<br>");
+                overfee = Math.ceil(exceed/200)*100;
+                total = 900 + overfee;
+            }
+
+            document.write("총 운행거리 : " + distance + "<br>");
+            document.write("기본요금 : 900<br>");
+            document.write("추가요금 : " + overfee +  "<br>");
+            document.write("전체요금 : " + total + "<hr>");
+
+            // 갯수, 누적
+            // 문2) 1~3사이의 모든 수를 더하시오
+            let hap=0;
+            for (a=1; a<=3; a++) {
+                hap += a;
+            }
+            document.write("누적의 합 : " + hap);
+            document.write("<hr>")
+
+            // 문3) 4팩토리얼값을 구하시오
+            let gop = 1;
+            for (a=4; a>=1; a--) {
+                gop *= a;
+            }
+            document.write("4팩토리얼 : " + gop);
+            document.write("<hr>")
+
+            // 문4) 두 수 사이의 합을 구하시오
+            // 변수끼리 서로 swap하는 것 > 파이선에서는 연산자까지 있다
+            let start = 5;
+            let end = 2;
+            let sum = 0;
+
+            if(start>end) {
+                let tmp = start;
+                start = end;
+                end = tmp;
+            } // if end
+
+            for (a=start; a<=end; a++) {
+                sum+=a;
+            }
+            document.write(start + "~" + end + "까지의 합 : " + sum);
+            document.write("<hr>");
+
+
+            // 문5) 1~5사이 중에서 짝수의 갯수를 구하시오
+            let count = 0;
+            for (let a=1; a<=5; a++) {
+                if(a%2==0){
+                    count+=1;
+                }
+            }
+            document.write("짝수의 갯수는 : " + count + "개");
+            document.write("<hr>");
+
+
+            // 문6) 서기1년 ~ 2022년 사이중에서 윤년의 갯수를 구하시오
+            // 주의) 달력과 관련이 있는 정보는 윤년 구하는 공식 등을 계산식으로 사용하지 말고
+            //       자바스크립트(Date객체), 자바(Calendar 클래스)를 사용해야 함.
+            let yunYear = 0;
+            for (let year=1; year<=2022; year++) {
+                if(year%4==0 && year%100!=0 || year%400==0){
+                    yunYear+=1;
+                }
+            }
+            document.write("윤년의 갯수는 : " + yunYear + "개");
+            document.write("<hr>");
+
+
+            //문7) x값이 10으로부터 x를 여러번 뺀후
+            //     결과값이 음수가 되면 x를 몇번 뺐는가를 구하시오
+
+            let x=3;
+            let su=10;
+            let imsub=0;
+
+            while (true) {   
+                su=su-x;
+                imsub+=1;
+                if(su<0) {
+                    break;
+                }
+            }
+            document.write("몇 번 뺐는가? : " + imsub);
+            document.write("<hr>")
+            ///////////////////////////////////////////////
+
+            // 과제) 3의 배수의 누적 합이 100이 넘어가려면 3부터 어디까지 더해야 하는지 구하시오
+
+            let y=0;
+            let cntY=0;
+            let sumtotal = 0;
+            
+            while (true) {
+                y+=3;
+                cntY+=1;
+                sumtotal+=y;
+                // document.write(y + "&nbsp;&nbsp;" + sumtotal + "<br>");
+                if(sumtotal>=100){
+                    break;
+                } // if end
+            } // while end\
+            document.write("3의 배수를 3부터 " + y + "까지 순차적으로 " + cntY + "번 더하면 100이 넘는다 " + "\(" + sumtotal + "\).");
+            document.write("<hr>");
+
+        </script>
+
+    </body>
+</html>

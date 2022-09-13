@@ -1,0 +1,35 @@
+<!DOCTYPE html>  
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>04_continue.html</title>
+    </head>
+    <body>        
+
+        <h3>break와 continue</h3>
+
+        <script>
+            // break    : 반복문을 빠져나옴
+            // continue : 반복문을 계속 실행
+            
+            for(let a=1; a<10; a++) {
+                if(a==5){
+                    break;
+                } // if end
+                document.write(a); // 1234
+            } // for end
+            // document.write(a); 에러. for문 안에서 정의된 변수 a는 for문 안에서만 쓸 수 있다.
+
+            document.write("<hr>")
+
+            for(let a=1; a<10; a++) {
+                if(a==5){
+                    continue;
+                } // if end
+                document.write(a); // 12346789
+            } // for end
+
+        </script>
+
+    </body>
+</html>

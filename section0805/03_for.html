@@ -1,0 +1,46 @@
+<!DOCTYPE html>  
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>03_for.html</title>
+    </head>
+    <body>        
+
+        <h3>for 반복문</h3>
+
+        <script>
+        /* 
+            ● 반복문
+             - for문, while문, do-while문
+             - break문
+             - continue문
+             - 무한Loop : 끝이 없는 반복
+
+            ● for반복문 형식
+             - for(시작값 ; 종료값 ; 증감) { 반복하고자 하는 명령어들}
+             - for( in ) {}
+             - for( : ) {}
+             - for( ; ; ) {} 무한 루프
+        */
+
+        // 증가에 따른 반복
+        for (let a=1; a<=3; a++) {
+            document.write(a+"HTML");
+        } // for end
+
+        // 감소에 따른 반복
+        for (let b=3; b>=1; b--) {
+            document.write(b+"CSS");
+            document.write("<hr>");
+        } // for end
+        
+        // 문제) 4단 출력하기
+        let dan=4;
+        for (let i=1; i<=9; i++) {
+            document.write(dan + "*" + i + "=" + (dan * i) + "<br>");
+        }
+        document.write("<hr>")
+        </script>
+
+    </body>
+</html>

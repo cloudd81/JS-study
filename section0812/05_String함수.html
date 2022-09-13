@@ -1,0 +1,70 @@
+<!DOCTYPE html>  
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>05_String함수.html</title>
+    </head>
+    <body>        
+
+        <h3>String Methods</h3>
+
+        <script>
+            // 참조 : https://www.w3schools.com/js/js_string_methods.asp
+            
+            let str="Gone With The Wind";
+            
+            document.write(str.length);
+            document.write("<hr>");
+            document.write(str.charAt(0));
+            document.write("<hr>");
+            document.write(str.charAt(17));
+            document.write("<hr>");
+            document.write(str.charAt(str.length-1));
+            document.write("<hr>");
+
+            document.write(str.toUpperCase());
+            document.write("<hr>");
+            document.write(str.toLowerCase());
+            document.write("<hr>");
+            document.write(str.replace("n", "N"));
+            document.write("<hr>");
+
+            document.write(str.substring(6,12));
+            document.write("<hr>");
+            document.write(str.substring(10,13));
+            document.write("<hr>");
+
+            document.write(str.substring(0,1));
+            document.write("<hr>");
+            document.write(str.substring(str.length-1,str.length));
+            document.write("<hr>");
+
+            // 문자열 분리하기
+            document.write(str.slice(10,13));
+            document.write("<hr>");
+
+            // 문자열 합치기
+            let text1="Hello";
+            let text2="World";
+            let text3=text1.concat(text2);
+            document.write(text3);
+            document.write("<hr>");
+
+            // 공백 제거하기
+            let text4 = "      Java    Script     ";
+            document.write(text4.trim());
+            document.write("<hr>");
+
+            // 전체 자리수를 정하고 비어있는 값 채우기
+            let text5="9"
+            document.write(text5.padStart(4,0)); // 0009
+            document.write("<hr>");
+
+            let text6="8"
+            document.write(text6.padStart(4,0)); // 8000
+            document.write("<hr>");
+
+        </script>
+
+    </body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>  
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>02_로또번호.html</title>
+    </head>
+    <body>        
+
+        <h3>로또번호</h3>
+        <div id="demo"></div>
+
+        <script>
+            // 문) 로또번호 1~45 사이의 수를 서로 겹치지 않게 6개 발생시킨후,
+            //      오름차순으로 정렬해서 id=demo에 출력하시오
+
+/*             document.write(parseInt(Math.random()*45)+1);
+            document.write("<br>");
+            document.write(parseInt(Math.random()*45)+1);
+            document.write("<br>");
+            document.write(parseInt(Math.random()*45)+1);
+            document.write("<br>");
+            document.write(parseInt(Math.random()*45)+1);
+            document.write("<br>");
+            document.write(parseInt(Math.random()*45)+1);
+            document.write("<br>");
+            document.write(parseInt(Math.random()*45)+1);
+            document.write("<br>"); */
+
+/*         let lotto=[]; // 로또번호 저장
+
+        for(let i=0; i<6; i++){
+            lotto[i]=parseInt(Math.random()*45)+1;
+        } // for end
+
+        lotto.sort(function(a, b){return a - b}); // 오름차순 정렬
+        document.getElementById("demo").innerHTML=lotto;
+        document.write("<hr>") */
+
+        // 하지만 숫자가 겹친다.
+        // 다양한 방법이 있겠지만 강사님은 나왔던 번호와 새로 뽑힌 번호가
+        // 같은지 비교시켜서 같으면 다시 발생시키는 방법을 사용하기로 함
+
+        let lotto=[]; // 로또번호 저장
+        for(let i=0; i<6; i++){
+            lotto[i]=parseInt(Math.random()*45)+1;
+            for(let j=0; j<i; j++){
+                if(lotto[i]==lotto[j]){ // 로또 번호가 중복되었는지?
+                    i--; // i가 1이 줄어들면 다시 시작한다. 예를 들어 4번째에서 겹치면 i를 3으로 만들어서 다시 4번째를 실행한다.
+                    break;
+                } // if end
+            } // for end
+        } // for end
+
+        lotto.sort(function(a, b){return a - b});
+        document.getElementById("demo").innerHTML=lotto;
+
+
+
+        </script>
+
+    </body>
+</html>

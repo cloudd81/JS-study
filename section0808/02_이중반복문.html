@@ -1,0 +1,50 @@
+<!DOCTYPE html>  
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>02_이중반복문.html</title>
+    </head>
+    <body>        
+
+        <h3>이중 반복문</h3>
+
+        <script>
+
+            for(let a=1; a<=2; a++) {
+                document.write("JAVA");
+                for(let b=1; b<=3; b++) {
+                    document.write("PYTHON")
+                } document.write("<hr>")// for end
+            } // for end
+
+            // 문제) 구구단 2-9단 출력하기
+            for (let dan=2; dan<=9; dan++) {
+                document.write(dan + "단<br>")
+                for(let i=1; i<=9; i++) {
+                    document.write(dan+"*"+i+"="+dan*i+"<br>");
+                } document.write("<hr>")// for end
+            } // for end
+
+            //////////////////////////////////
+            // 회전 수 증가와 회전 수 감소
+            let a=0, b=0;
+            for (a=1; a<=10; a++) {
+                for (b=1; b<=a; b++) {
+                    document.write("#");
+                }
+                document.write("<br>")
+            }
+
+            for (a=10; a>=1; a--) {
+                for (b=1; b<=a; b++) {
+                    document.write("#");
+                }
+                document.write("<br>")
+            }
+            
+
+            
+        </script>
+
+    </body>
+</html>

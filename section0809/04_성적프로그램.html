@@ -1,0 +1,113 @@
+<!DOCTYPE html>  
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>04_성적프로그램.html</title>
+    </head>
+    <body>        
+
+        <h3>성적 프로그램</h3>
+        <div id="demo"></div>
+
+        <script>
+            //문) 5명의 학생을 대상으로 평균, 과락, 평균10점당 * 한개씩, 장학생을 구한후
+            //    결과값을 표작성해서 id=demo에 출력하시오
+            /* 
+            --------------------------------------------------------
+            이름   국어 영어 수학 평균 등수 결과
+            --------------------------------------------------------
+            무궁화 100  100  100  100  1    합격   ********** 장학생
+            홍길동  20   50   30   33  5    불합격 ***
+            개나리  90   95   90   91  2    합격   *********
+            진달래  70   80   60   70  4    합격   *******
+            라일락  35  100  100   78  3    재시험 *******
+            --------------------------------------------------------
+            */
+
+            let uname= ["라일락","진달래","개나리","무궁화","홍길동"];
+            let kor  = [100, 50, 95, 80, 60];
+            let eng  = [100, 55, 95, 85, 40];
+            let mat  = [100, 60, 35, 90, 30];
+            let size = uname.length; //5
+            
+            // 평균 배열
+            let aver = [];
+            for (let i=0; i<size; i++) {
+                aver[i] = parseInt((kor[i]+eng[i]+mat[i])/3)
+            } // for end  
+
+            // 등수 배열
+            let rank = [1,1,1,1,1];
+            for (let i=0; i<size; i++) {
+                for (let j=0; j<size; j++) {
+                    if(aver[i]<aver[j]){
+                        rank[i]++;
+                    } // if end
+                } // for end
+            } // for end
+
+            // 통과 배열
+            let pass = [];
+            for (let i=0; i<size; i++) {
+                if (aver[i]>=70) {
+                    if (kor[i]<40 || eng[i]<40 || mat[i]<40) {
+                        pass[i]="재시험";
+                    } else {
+                        pass[i]="합격";
+                    } // if end
+                } else {
+                    pass[i]="불합격";
+                } // if end
+            } // for end
+
+            // 별 배열
+            let star=["","","","",""];
+            for (let i=0; i<size; i++) {
+                for (let n=0; n<aver[i]/10; n++) {
+                    star[i]+="♪";
+                } // for end
+            } // for end
+
+            // 장학생 배열
+            let scholar=[];
+            for (let i=0; i<size; i++) {
+                if (aver[i]>=95) {
+                    scholar[i] = "<span style='color:red; font-weight:bold;'>장학생</span>";
+                } else {
+                    scholar[i] = "-";
+                } // if end
+            } // for end
+
+            // 테이블
+            let result="";
+                result+="<table border='1'>";            
+                result+="<tr>";
+                result+="   <th>이름</th>";
+                result+="   <th>국어</th>";
+                result+="   <th>영어</th>";
+                result+="   <th>수학</th>";
+                result+="   <th>평균</th>";
+                result+="   <th>등수</th>";
+                result+="   <th colspan='3'>결과</th>";
+                result+="</tr>";
+            
+            for (let i=0; i<size; i++) { // for 문으로 테이블 쉽게 만들기
+                result+="<tr align='center'>";
+                result+="   <td>" + uname[i] + "</td>";
+                result+="   <td>" + kor[i] + "</td>";
+                result+="   <td>" + eng[i] + "</td>";
+                result+="   <td>" + mat[i] + "</td>";
+                result+="   <td>" + aver[i] + "</td>";
+                result+="   <td>" + rank[i] + "</td>";
+                result+="   <td>" + pass[i] + "</td>";
+                result+="   <td>" + star[i] + "</td>";
+                result+="   <td>" + scholar[i] + "</td>";
+                result+="</tr>";
+            }
+                result+="</table>";
+
+            document.getElementById("demo").innerHTML=result;            
+
+        </script>
+    </body>
+</html>

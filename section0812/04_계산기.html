@@ -1,0 +1,183 @@
+<!DOCTYPE html>  
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>04_계산기.html</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">
+
+        <style>
+            table {
+                border-collapse: collapse;
+                text-align: center;
+                box-shadow: 4px 4px #999; 
+                padding: 20px;
+                border-radius: 10%;
+                background-color: #90c424;
+            }
+            
+            .txt{
+                text-align: right;
+                font-size: 50px;
+                font-family: 'Black Han Sans', sans-serif;
+                width: 250px;
+                height: 100px;
+                margin: 10px;
+                padding: 10px;
+                color: black;
+                background-color: #fed873;
+                border-radius: 20%;
+            }
+
+            .bt{
+                border-radius: 80%;
+                font-size: 30px;               
+                font-family: 'Black Han Sans', sans-serif;
+                background-color: white;
+                color: black;
+                border: 0px solid black;
+                cursor: pointer;
+                transition-duration: 0.4s;    
+                width: 70%;                  
+                box-shadow: 0 4px #999;                         
+            }
+
+            .bt2{
+                position: relative;
+                z-index: 1;
+                font-size: 35px;
+                font-family: 'Black Han Sans', sans-serif;
+                background-color: rgba( 255, 255, 255, 0 );
+                color: black;
+                cursor: pointer;
+                transition-duration: 0.4s;
+                border: none;    
+                width: 50%;                 
+            }
+
+            .img{
+                position: absolute;
+                left: 240px;
+            }
+
+            .bt:hover {
+                background-color: lightgray;
+            }
+            
+            .bt:active {
+            background-color: #353835;
+            box-shadow: 0 5px #666;
+            transform: translateY(4px);
+            }
+
+        </style>
+
+    </head>
+    <body>        
+
+        <h3>미니 계산기</h3>
+
+        <form>
+            <table>
+            <tr>
+                <td colspan="4">
+                    <input type="text" name="result" id="result" size="20px" value="0" readonly class="txt">
+                </td>
+            </tr>
+            <tr>
+                <td><input type="button" value="7" class="bt" onclick="inputData(7)"></td>
+                <td><input type="button" value="8" class="bt" onclick="inputData(8)"></td>
+                <td><input type="button" value="9" class="bt" onclick="inputData(9)"></td>
+                <td><input type="button" value="÷" class="bt" onclick="operator('/')"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="4" class="bt" onclick="inputData(4)"></td>
+                <td><input type="button" value="5" class="bt" onclick="inputData(5)"></td>
+                <td><input type="button" value="6" class="bt" onclick="inputData(6)"></td>
+                <td><input type="button" value="×" class="bt" onclick="operator('*')"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="1" class="bt" onclick="inputData(1)"></td>
+                <td><input type="button" value="2" class="bt" onclick="inputData(2)"></td>
+                <td><input type="button" value="3" class="bt" onclick="inputData(3)"></td>
+                <td><input type="button" value="－" class="bt" onclick="operator('-')"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="0" class="bt" onclick="inputData(0)"></td>
+                <td><input type="button" value="." class="bt" onclick="dot()"></td>
+                <td><input type="button" value="=" class="bt" onclick="compute()"></td>
+                <td><input type="button" value="+" class="bt" onclick="operator('+')"></td>
+            </tr>
+            <tr style="height: 100px;">
+                <td colspan="2"><input type="button" value="←" class="bt2" onclick="backspace()"></td>
+                <td colspan="2"><input type="button" value="C" class="bt2" onclick="cls()"><img class="img" src="../../images/choco.png" width="60px"></td>
+            </tr>
+            </table>
+        </form>
+
+        <script>
+            // 1) c버튼을 클릭하면 id=result에 0을 대입한다.
+            function cls() {
+                document.getElementById("result").value = 0;
+            } // cls() end
+
+            // 2) 클릭한 숫자를 화면에 출력하게 하기
+            function inputData(su) {
+                // alert(su);
+                // 전달받은 su변수값을 id=result에 대입
+                // document.getElementById("result").value += su;
+                
+                // id=result 값을 숫자형으로 변환 "0123" > 123
+                document.getElementById("result").value = Number(document.getElementById("result").value += su);
+            } // inputDate() end
+
+            // 3) 연산에 필요한 전역변수 선언하기
+            let op; // 연산기호
+            let num1; // 사용자가 입력한 첫번째 수
+            let num2; // 사용자가 입력한 두번째 수
+
+
+            function operator(kind) {
+                // 4) 클릭한 연산기호를 전역변수 op에 저장하기
+                // alert(kind);
+                op=kind;
+
+                // 5) id=result가 가지고 있는 값을 num1 변수에 저장하기
+                num1=Number(document.getElementById("result").value);
+
+                // 6) 두번째 수를 입력받기 위해 id=result가 가지고 있는 값을 초기화하기
+                cls();
+            } // operator() end
+
+
+            // 실제 계산을 해서 결과값 출력하기
+            // 참조 : https://www.w3schools.com/jsref/jsref_eval.asp
+            function compute() {
+
+                // 7) num2 값 받아오기
+                num2=Number(document.getElementById("result").value);
+
+                // 8) 계산해서 출력하기
+                document.getElementById("result").value = eval(num1 + op + num2); // 아주 독특한 eval
+            } // compute() end
+
+            // 과제 : 백스페이스 만들어보기
+            
+            // 9) <- 버튼을 클릭하면 id=result 값에서 마지막 글자부터 순서대로 지우기
+            function backspace() {
+                let bs = document.getElementById("result").value;
+                if (bs.length!=1){
+                document.getElementById("result").value = bs.substring(0,bs.length-1);
+                } else {
+                    document.getElementById("result").value = 0;
+                }
+            }
+
+            function dot () {
+            }
+            
+        </script>
+
+    </body>
+</html>

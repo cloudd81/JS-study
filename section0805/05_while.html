@@ -1,0 +1,51 @@
+<!DOCTYPE html>  
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>05_while.html</title>
+    </head>
+    <body>        
+
+        <h3>while과 do~while</h3>
+
+        <script>
+            /* 
+                1. while문
+                 - 형식 while(조건) {조건이 true이면 수행한다}
+            */
+            let a = 1;
+            while (a<=3) {
+                document.write(a);
+                document.write("JAVA");
+                a++
+            }
+            document.write(a);
+            document.write("<hr>");
+
+            /* 
+                2. do~while문
+                 - 형식
+                    do {
+                        조건이 true이면 수행
+                    } while(조건);
+            */
+
+            let b = 1;
+            do {
+                document.write(b);
+                document.write("Python")
+                b++
+            } while(b<=3);
+            
+            document.write("<hr>");
+
+            let c=5;
+            do {
+                document.write("jQuery")
+                c++
+            } while(c<=3);
+            
+        </script>
+
+    </body>
+</html>

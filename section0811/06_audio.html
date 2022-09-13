@@ -1,0 +1,43 @@
+<!DOCTYPE html>  
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>06_audio.html</title>
+    </head>
+    <body>        
+
+        <div style="text-align: center;">
+            <h3>음악목록</h3>
+            <img src="../../music/suyoungkim.jpg" id="poster" width="300px" height="250px">
+            <br><br>
+            <audio src="../../music/cheektocheek.mp3" id="audio1" controls></audio>
+        </div>
+        <hr>
+ 
+        <div style="margin: auto; width: 50%;">
+            <ol>
+                <li><a href="javascript:loadMusic('../../music/suyoungkim.jpg', '../../music/cheektocheek.mp3')">check to check</a></li>
+                <li><a href="javascript:loadMusic('../../music/sheis.jpg', '../../music/sheis.mp3')">그녀가 처음 울던 날</a></li>
+                <li><a href="javascript:loadMusic('../../music/candy.jpg', '../../music/candy.mp3')">내 귀에 캔디</a></li>
+                <li><a href="javascript:loadMusic('../../music/gangnamstyle.jpg', '../../music/gangnamstyle.mp3')">강남 스타일</a></li>
+            </ol>
+        </div>
+
+        <script>
+            function loadMusic(jpg, mp3) {
+                // alert("#" + jpg + "#");
+                // alert("#" + mp3 + "#");
+                let poster=document.getElementById("poster");
+                let audio1=document.getElementById("audio1");
+
+                poster.src=jpg;
+                audio.src=mp3;
+
+                audio1.play();
+                // 특정 웹사이트에서 재생을 막아두어서 재생을 시키기 위해 걸어둔 코드
+            }
+            
+        </script>
+
+    </body>
+</html>

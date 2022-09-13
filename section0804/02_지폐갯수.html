@@ -1,0 +1,61 @@
+<!DOCTYPE html>  
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>02_지폐갯수.html</title>
+        <style>
+            #demo{
+                position: absolute;
+                margin: 0;
+                padding: 0;
+                width: 80px;
+                height: 120px;
+            }
+        </style>
+    </head>
+    <body>        
+
+        <div id="demo"></div>
+
+        <script>
+            // 연습) 각 지폐의 갯수를 구해서 표를 작성해서 본문 id="demo"에 출력하시오
+            /* 
+            
+            */
+            
+            let money=54320;
+            let man = parseInt(money/10000); // 만으로 나눠서 만원 갯수 구하기
+            money = money % 10000; // 만으로 나눴을 때 나머지를 구해서 천원들만 남기기
+            let chun = parseInt(money/1000); // 천으로 나눠서 천원 갯수 구하기
+            money = money % 1000; // 천으로 나눴을 때 나머지를 구해서 백원들만 남기기
+            let baek = parseInt(money/100); // 백으로 나눠서 백원 갯수 구하기
+            money = money % 100; // 백으로 나눴을 때 나머지를 구해서 십원들만 남기기
+            let sib = parseInt(money/10); // 십으로 나눠서 십원 갯수 구하기
+            
+
+            let result=""; // 최종 결과값
+            result+="<table border='1'>";
+            result+="<tr>";
+            result+="   <th>만원</th>";
+            result+="   <td>" + parseInt(man) + "장" + "</td>";
+            result+="</tr>";
+            result+="<tr>";
+            result+="   <th>천원</th>";
+            result+="   <td>" + parseInt(chun) + "장" + "</td>";
+            result+="</tr>";
+            result+="<tr>";
+            result+="   <th>백원</th>";
+            result+="   <td>" + parseInt(baek) + "개" + "</td>";
+            result+="</tr>";
+            result+="<tr>";
+            result+="   <th>십원</th>";
+            result+="   <td>" + parseInt(sib) + "개" + "</td>";
+            result+="</tr>";
+            result+="</table>";
+
+            document.getElementById("demo").innerHTML=result;
+
+        </script>
+
+    </body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>  
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>06_연산자.html</title>
+    </head>
+    <body>        
+
+        <h3>연산자</h3>
+
+        <script>
+            /* 
+                ● [연산자 Operator]
+                 - 이식성이 풍부하다
+                 - 산술, 비교, 논리연산자
+            */
+
+            // 1. 산술연산자
+            document.write(5+3);
+            document.write(5-3);
+            document.write(5*3);
+            document.write(5/3); // 몫 1.6666666666
+            document.write(5%3); // 나머지 2
+            document.write("<hr>");
+
+            document.write(3/5); // 몫 0.6
+            document.write("<hr>");
+            document.write(3%5); // 나머지 3
+            document.write("<hr>");
+            ///////////////////////////////
+
+            // 2. 비교연산자
+            // -> 논리형(boolean)
+            // -> true, false
+            document.write(5>3);
+            document.write(5<3);
+            document.write("<hr>");
+
+            document.write(5>=3);
+            document.write(5<=3);
+            document.write("<hr>");
+
+            document.write(5==3);
+            document.write(5!=3);
+            document.write("<hr>");
+            /////////////////////////////////////
+
+            // 3. 논리 연산자
+            // -> 조건이 2개 이상일 경우 전체적으로 판단
+            // -> 결과 값은 boolean 값으로 반환
+            // -> 그리고, 또는, 부정
+
+            // 1) && 연산자
+            // -> 그리고, and 연산자
+            // -> 모든 조건이 true 일때만 true
+            // -> ~ 이면서
+            document.write(5<3 && 2<4);
+            document.write("<hr>");
+                    //      false   true
+                    //      false
+
+            
+            // 2) || 연산자
+            // -> 그리고, and 연산자
+            // -> 모든 조건이 true 일때만 tru
+            // -> ~ 이거나
+            document.write(5<3 || 2<4);
+            document.write("<hr>");
+                    //      false   true
+                    //      false
+
+                    
+            // 3) ! 연산자
+            // -> 논리 부정 연산자, not 연산자
+            // -> ~ 아니라면
+            let flag=true;
+            document.write(!flag);
+
+            
+        </script>
+
+    </body>
+</html>

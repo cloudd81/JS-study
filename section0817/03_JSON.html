@@ -1,0 +1,94 @@
+<!DOCTYPE html>  
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>03_JSON.html</title>
+    </head>
+    <body>        
+
+        <h3>JSON</h3>
+
+        <script>
+            // 참조 https://www.w3schools.com/js/js_json_intro.asp
+            /* 
+                ● JSON (JavaScript Object Notation)
+                 - 문자단위 통식(비동기식 방식)에서 xml을 대체하는 포맷이다.
+                 - AJAX, NoSQL DB 등에서 주로 사용하는 포맷(표기법).
+                 - 배열을 객체화.
+
+                ● XML문법
+                 - 여는 태그와 닫는 태그로 구성이 되어있다.
+                 - 또한 custom tag(사용자 정의 태그) 기반이다.
+                 - 환경설정 파일 작성, 안드로이드 기반 앱개발시 View단 구성.
+                 예) <database>
+                        <driver>OracleDriver</driver>
+                        <username>system</username>
+                        <password>1234</password>
+                     </database>
+
+                ● JSON 기본 구조
+                 - 속성:값 쌍으로 데이터가 구성되어있다.
+                 - 속성(name, key, property)
+                 - 값(data, value)
+                 - 속성을 구성할 때의 형식) {name:value, "name":value, 'name':value}
+                 - 예) {driver:"OraclaDriver", username:"system", password:1234}
+            */
+
+            // 1. Array 순수 배열
+            /* 
+            let person=["John", "Doe", 46];
+            document.write(person.length); // 3
+            document.write("<hr>");
+            document.write(person[0]);
+            document.write("<hr>");
+            document.write(person[1]);
+            document.write("<hr>");
+            document.write(person[2]);
+            document.write("<hr>");
+            */
+
+            /* 
+            let person=[];
+            person["firstName"]="John";
+            person["lastName"]="Doe";
+            person["age"]=46;
+
+            document.write(person["firstName"]);
+            document.write("<hr>");
+            document.write(person["lastName"]);
+            document.write("<hr>");
+            document.write(person["age"]);
+            document.write("<hr>");
+
+            document.write(person[0]);  // undefined
+            document.write(person[1]);  // undefined
+            document.write(person[2]);  // undefined
+            */
+            ///////////////////////////////////////////////////////////////////////
+            
+
+            // 2. JSON 변수 선언
+            let person={"firstName":"John", "lastName":"Doe", "age":46};
+            // name에 "" 는 생략 가능
+            // let person={firstName:"John", lastName:"Doe", age:46};
+
+            // JavaScript 접근
+            document.write(person["firstName"]);
+            document.write("<hr>");
+            document.write(person["lastName"]);
+            document.write("<hr>");
+            document.write(person["age"]);
+            document.write("<hr>");
+
+            // JSON 접근
+            document.write(person.firstName);
+            document.write("<hr>");
+            document.write(person.lastName);
+            document.write("<hr>");
+            document.write(person.age);
+            document.write("<hr>");
+            
+        </script>
+
+    </body>
+</html>
